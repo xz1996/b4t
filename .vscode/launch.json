@@ -14,7 +14,11 @@
                 "C:\\Users\\x1twbm\\Desktop\\New folder\\testUtil",
                 "-v",
                 "-s",
-                "unix"
+                "unix",
+                "--input_encoding",
+                "gbk",
+                "--output_encoding",
+                "utf-8"
             ]
         }
     ]

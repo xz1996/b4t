@@ -47,7 +47,7 @@ def main():
     with ThreadPoolExecutor(max_workers=40, thread_name_prefix='w2u-') as executor:
         for fp in list_files(args.path):
             p = Process(fp, newline_dict.get(
-                args.system), verbose=args.verbose)
+                args.system), i_encoding=args.input_encoding, o_encoding=args.output_encoding, verbose=args.verbose)
             future_tasks.append(executor.submit(p.run))
 
     wait(future_tasks, return_when=ALL_COMPLETED)
