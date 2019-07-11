@@ -9,18 +9,12 @@ from concurrent.futures import ThreadPoolExecutor, wait, ALL_COMPLETED
 from Process import Process
 
 BANNER = r'''
-                  .-''-.
-                .' .-.  )
-       _     _ / .'  / /
- /\    \\   //(_/   / /
- `\\  //\\ //      / /
-   \`//  \'/      / /         _    _
-    \|   |/      . '         | '  / |
-     '          / /    _.-').' | .' |
-              .' '  _.'.-'' /  | /  |
-             /  /.-'_.'    |   `'.  |
-            /    _.'       '   .'|  '/
-           ( _.-'           `-'  `--'
+______    ___ _____
+| ___ \  /   |_   _|
+| |_/ / / /| | | |
+| ___ \/ /_| | | |
+| |_/ /\___  | | |
+\____/     |_/ \_/ 
 '''
 print(BANNER)
 
@@ -31,6 +25,8 @@ parser.add_argument(
     "path", help="The file path that you want to convert", type=str)
 parser.add_argument("-s", "--system", type=str, choices=list(newline_dict.keys()),
                     default="unix", help="The operating system style that you want to convert")
+parser.add_argument("--input_encoding", type=str, help="The encoding of files to be processed")
+parser.add_argument("--output_encoding", type=str, help="The encoding of files after being processed")
 parser.add_argument("-v", "--verbose", action="store_true",
                     help="Show detail information during conversion")
 args = parser.parse_args()
