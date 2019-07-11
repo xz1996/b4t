@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: w2u.py File",
+            "name": "Python: b4t.py File",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/src/w2u.py",
+            "program": "${workspaceFolder}/src/b4t.py",
             "console": "integratedTerminal",
             "args": [
                 "C:\\Users\\x1twbm\\Desktop\\New folder\\testUtil",

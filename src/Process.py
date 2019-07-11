@@ -1,13 +1,16 @@
+import datetime
 from typing import List
+
 
 class Process(object):
 
-    def __init__(self, file_path: str, newline: str, i_encoding=None, o_encoding=None):
+    def __init__(self, file_path: str, newline: str, i_encoding=None, o_encoding=None, verbose=False):
         super().__init__()
         self._file_path = file_path
         self._newline = newline
         self._i_encoding = i_encoding
         self._o_encoding = o_encoding
+        self._verbose = verbose
 
     def __read_file(self) -> List[str]:
         try:
@@ -22,6 +25,9 @@ class Process(object):
         if content_lines:
             with open(self._file_path, 'w', encoding=self._o_encoding, newline=self._newline) as f:
                 f.writelines(content_lines)
+            if self._verbose:
+                print("{} conversion success at [{}].".format(
+                    self._file_path, datetime.datetime.now()))
 
     def run(self):
         self.__write_file(self.__read_file())

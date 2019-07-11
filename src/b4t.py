@@ -1,10 +1,9 @@
 import argparse
 import asyncio
-import datetime
 import os
+from concurrent.futures import ALL_COMPLETED, ThreadPoolExecutor, wait
 from time import time
 from typing import List
-from concurrent.futures import ThreadPoolExecutor, wait, ALL_COMPLETED
 
 from Process import Process
 
@@ -14,7 +13,7 @@ ______    ___ _____
 | |_/ / / /| | | |
 | ___ \/ /_| | | |
 | |_/ /\___  | | |
-\____/     |_/ \_/ 
+\____/     |_/ \_/
 '''
 print(BANNER)
 
@@ -25,8 +24,10 @@ parser.add_argument(
     "path", help="The file path that you want to convert", type=str)
 parser.add_argument("-s", "--system", type=str, choices=list(newline_dict.keys()),
                     default="unix", help="The operating system style that you want to convert")
-parser.add_argument("--input_encoding", type=str, help="The encoding of files to be processed")
-parser.add_argument("--output_encoding", type=str, help="The encoding of files after being processed")
+parser.add_argument("--input_encoding", type=str,
+                    help="The encoding of files to be processed")
+parser.add_argument("--output_encoding", type=str,
+                    help="The encoding of files after being processed")
 parser.add_argument("-v", "--verbose", action="store_true",
                     help="Show detail information during conversion")
 args = parser.parse_args()
@@ -45,7 +46,8 @@ def main():
     future_tasks = []
     with ThreadPoolExecutor(max_workers=40, thread_name_prefix='w2u-') as executor:
         for fp in list_files(args.path):
-            p = Process(fp, newline_dict.get(args.system))
+            p = Process(fp, newline_dict.get(
+                args.system), verbose=args.verbose)
             future_tasks.append(executor.submit(p.run))
 
     wait(future_tasks, return_when=ALL_COMPLETED)
