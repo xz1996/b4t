@@ -5,16 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Current File",
+            "name": "Python: b4t.py File",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/src/w2u.py",
+            "program": "${workspaceFolder}/src/b4t.py",
             "console": "integratedTerminal",
             "args": [
                 "C:\\Users\\x1twbm\\Desktop\\New folder\\testUtil",
                 "-v",
                 "-s",
-                "unix"
+                "unix",
+                "--input_encoding",
+                "gbk",
+                "--output_encoding",
+                "utf-8"
             ]
         }
     ]
