@@ -44,7 +44,7 @@ def list_files(file_path: str) -> List[str]:
 def main():
     start = time()
     future_tasks = []
-    with ThreadPoolExecutor(max_workers=40, thread_name_prefix='w2u-') as executor:
+    with ThreadPoolExecutor(max_workers=40, thread_name_prefix='b4t-') as executor:
         for fp in list_files(args.path):
             p = Process(fp, newline_dict.get(
                 args.system), i_encoding=args.input_encoding, o_encoding=args.output_encoding, verbose=args.verbose)
