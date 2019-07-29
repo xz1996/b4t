@@ -36,3 +36,6 @@ optional arguments:
                         The encoding of files after being processed
   -v, --verbose         Show detail information during conversion
 ```
+
+## Download
+Click [here](https://github.com/xz1996/b4t/releases) to download the appropriate version.
